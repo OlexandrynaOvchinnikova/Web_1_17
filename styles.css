@@ -1,0 +1,53 @@
+*{
+    box-sizing: border-box;
+    padding: 5px;
+    margin: 0;
+}
+.header{
+    text-align: center;
+}
+
+.about{
+    display: grid;
+    grid-template-columns:1fr 3fr;
+    /*flex-direction: row;*/
+    /*flex-wrap: wrap;*/
+}
+.contact, .first_achive, .second_achive{
+    display: grid;
+    grid-template-columns:1fr 1fr 1fr 1fr;
+}
+
+.text_exp{
+    display: grid;
+    grid-template-columns:2fr 1fr 1fr;
+}
+
+.text_exp_sec{
+    display: grid;
+    grid-template-columns:2fr 1fr 1fr;
+}
+.photo_of_person{
+    width:150px;
+    height:150px;
+}
+
+.not_bold{
+    font-weight:normal
+}
+.color_name{
+    color: #fe4a01;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight:bolder;
+}
+.fa-heart{
+    color:#fe4a01;
+}
+.first_achive, .second_achive{
+    font-weight: bold;
+}
+
+
+
+
+
