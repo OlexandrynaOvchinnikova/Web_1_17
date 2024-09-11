@@ -1,4 +1,5 @@
 $color_1: #fe4a01;
+$color_2: #eeeeee;
 $font-family_1: Verdana, Geneva, Tahoma, sans-serif;
 
 * {
@@ -8,6 +9,7 @@ $font-family_1: Verdana, Geneva, Tahoma, sans-serif;
 }
 .header {
     text-align: center;
+    background-color: $color_2;
 }
 .about {
     display: grid;
@@ -35,10 +37,12 @@ $font-family_1: Verdana, Geneva, Tahoma, sans-serif;
     display: grid;
     grid-template-columns: 2fr 1fr 1fr;
 }
+
 .photo_of_person {
     width: 150px;
     height: 150px;
 }
+
 .not_bold {
     font-weight: normal;
 }

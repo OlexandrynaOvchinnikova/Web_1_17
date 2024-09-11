@@ -1,15 +1,32 @@
 // таски для HTML, SCSS, JS та зображень + BrowserSync для перезавантаження сторінки
 // задачу default і протестуйте автоматичну обробку файлів та перезавантаження сторінки.
 
-const {dest, src, watch, parallel} = require('gulp');
-// const gulp = require("gulp");
+const {dest, src, watch, parallel, series} = require('gulp');
+//series - one BY one
 
 const scss = require('gulp-sass')(require('sass'));
 const concat = require('gulp-concat');
 const gulp = require("gulp");
 const uglify = require('gulp-uglify-es').default;
 const browserSync = require('browser-sync').create();
-// const autoprefixer = require('gulp-autoprefixer');
+const clean = require('gulp-clean');
+const imagemin = async () => (await import('gulp-imagemin')).default;
+
+// const path ={
+//     styles: {
+//         src: 'app/scss/style.scss',
+//         dest: 'app/css'
+//     },
+//     scripts: {
+//         src: 'app/js/main.js',
+//         dest: 'app/js',
+//     },
+//     images: {
+//         src: 'app/img/**/*.{png,jpg,jpeg,gif,svg}',
+//         dest: 'app/images'
+//     }
+// }
+
 
 //SASS
 function styles() {
@@ -46,11 +63,36 @@ function browser_sync() {
     });
 }
 
+//Img
+async function img() {
+    const imageminModule = await imagemin();
+    return src('app/img/**/*')
+        .pipe(imageminModule())
+        .pipe(dest('app/images/'));
+}
+
+//clean file dist before build
+function cleanDist() {
+    return src('dist')
+        .pipe(clean());
+}
+
+//transfer done files to dist
+function building(){
+    return src([
+        'app/css/style.min.css',
+        'app/js/main.min.js',
+        'app/*.html',
+    ], {base: 'app'})
+    .pipe(dest('dist'))
+}
 
 exports.styles = styles; //turn on func
 exports.scripts = scripts;
 exports.watching = watching;
 exports.browser_sync = browser_sync;
+exports.img = img;
 
+exports.build = series(cleanDist, building);
 //default
-exports.default = parallel(styles, scripts, browser_sync, watching);
+exports.default = parallel(styles, scripts, img, browser_sync, watching);
