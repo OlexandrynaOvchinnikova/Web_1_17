@@ -10,23 +10,22 @@ const gulp = require("gulp");
 const uglify = require('gulp-uglify-es').default;
 const browserSync = require('browser-sync').create();
 const clean = require('gulp-clean');
-const imagemin = async () => (await import('gulp-imagemin')).default;
+const imagemin = require('gulp-imagemin');
+const newer = require('gulp-newer');
+const include = require('gulp-include');
 
-// const path ={
-//     styles: {
-//         src: 'app/scss/style.scss',
-//         dest: 'app/css'
-//     },
-//     scripts: {
-//         src: 'app/js/main.js',
-//         dest: 'app/js',
-//     },
-//     images: {
-//         src: 'app/img/**/*.{png,jpg,jpeg,gif,svg}',
-//         dest: 'app/images'
-//     }
+// const fonter = require('gulp-fonter');
+// const ttf2woff2 = require('ttf2woff2');
+
+// function fonts(){
+//     return src('app/fonts/src/*.*')
+//         .pipe(fonter({
+//             formats: ['woff', 'ttf']
+//         }))
+//         .pipe(src('app/fonts/*.ttf'))
+//         .pipe(ttf2woff2())
+//         .pipe(dest('app/fonts'));
 // }
-
 
 //SASS
 function styles() {
@@ -47,28 +46,28 @@ function scripts() {
         .pipe(browserSync.stream())
 }
 
-//check what new
-function watching() {
-    watch(['app/scss/style.scss'], styles)
-    watch(['app/js/main.js'], scripts)
-    watch(['app/*.html']).on('change', browserSync.reload) //for all html
-}
+//HTML
+// function included() {
+//     return src('app/pages/*.html')
+//         .pipe(include({
+//             include: ['app/components']
+//         }))
+//         .pipe(dest('app'))
+//         .pipe(browserSync.stream())
+// }
 
-//Browser - auto reload
-function browser_sync() {
+//check what new + Browser_sync
+function watching() {
     browserSync.init({
         server: {
             baseDir: "app/"
         }
     });
-}
-
-//Img
-async function img() {
-    const imageminModule = await imagemin();
-    return src('app/img/**/*')
-        .pipe(imageminModule())
-        .pipe(dest('app/images/'));
+    watch(['app/scss/style.scss'], styles)
+    watch(['app/images/src'], imagemin)
+    watch(['app/js/main.js'], scripts)
+    // watch(['app/components/*', 'app/pages/*'], included)
+    watch(['app/*.html']).on('change', browserSync.reload) //for all html
 }
 
 //clean file dist before build
@@ -81,18 +80,33 @@ function cleanDist() {
 function building(){
     return src([
         'app/css/style.min.css',
+        '!app/images/dist/*.svg',
+        'app/images/dist/*.*',
+        // 'app/fonts/*.*',
         'app/js/main.min.js',
-        'app/*.html',
+        'app/**/*.html',
     ], {base: 'app'})
     .pipe(dest('dist'))
+}
+
+// Img
+function images() {
+    return gulp
+        .src('app/images/src/*.*')
+        .pipe(newer('app/images/dist'))
+        .pipe(imagemin())
+        .pipe(dest('app/images/dist'))
 }
 
 exports.styles = styles; //turn on func
 exports.scripts = scripts;
 exports.watching = watching;
-exports.browser_sync = browser_sync;
-exports.img = img;
+exports.images = images;
+exports.building = building;
+// exports.included = included;
+// exports.fonts = fonts;
+
 
 exports.build = series(cleanDist, building);
 //default
-exports.default = parallel(styles, scripts, img, browser_sync, watching);
+exports.default = parallel(styles, images, scripts, watching);
