@@ -1,11 +1,14 @@
 $color_1: #fe4a01;
 $color_2: #eeeeee;
 $font-family_1: Verdana, Geneva, Tahoma, sans-serif;
+$font-family_2: monospace;
+
 
 * {
     box-sizing: border-box;
     padding: 6px;
     margin: 0;
+    width: auto;
 }
 .header {
     text-align: center;
@@ -15,14 +18,42 @@ $font-family_1: Verdana, Geneva, Tahoma, sans-serif;
     display: grid;
     grid-template-columns: 1fr 3fr;
 }
+.pos {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+
+}
+.hr2{
+    width: 100%;
+}
 .contact {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    background-color: $color_2;
 }
 .first_achive {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     font-weight: bold;
+    padding: 20px;
+}
+
+.bord{
+    border-radius: 15px;
+    background-color: #eeeeee;
+    padding: 10px;
+    margin-right: 20px;
+}
+
+hr {
+    height: 1px;
+    border: 0;
+    border-top: 5px solid #fe4a01;
+    margin-top:20px;
+    padding-left: 20px;
+    width: 340px;
+    align-content: center;
+
 }
 .second_achive {
     display: grid;
@@ -45,6 +76,7 @@ $font-family_1: Verdana, Geneva, Tahoma, sans-serif;
 
 .not_bold {
     font-weight: normal;
+    font-family: $font-family_2;
 }
 .color_name {
     color: $color_1;
@@ -54,3 +86,87 @@ $font-family_1: Verdana, Geneva, Tahoma, sans-serif;
 .fa-heart {
     color: $color_1;
 }
+
+//.vl {
+////    border-left: 6px solid #eeeeee;
+////    height: 100%;
+////}
+////
+////li {
+////    list-style: square;
+////}
+////
+////li::marker {
+////    font-size: 2rem;
+////    color: $color_1;
+////}
+
+ul.text_ref {
+    list-style: none;
+}
+
+ul:not(.text_ref){
+    list-style: none;
+    margin:0;
+    padding:0;
+    position: relative;
+    &:before{
+        content:"";
+        display: inline-block;
+        width: 2px;
+        background: #eeeeee;
+        position: absolute;
+        left:3px;
+        top:5px;
+        //height: calc(100% - 50px );
+        height: 70%;
+    }
+    li{
+        position: relative;
+        padding-left: 15px;
+        margin-bottom:15px;
+        &:before{
+            content:"";
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: #fe4a01;
+            position: absolute;
+            left:0;
+            top:5px;
+            border-radius: 0;
+        }
+    }
+}
+
+.range {
+    width: 300px;
+    height: 2px;
+    -webkit-appearance: none;
+    background: #ffffff;
+    outline: none;
+    border-radius: 0;
+    overflow: hidden;
+    box-shadow: inset 0 0 5px rgb(238, 238, 238);
+}
+.range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 5px;
+    height: 25px;
+    background: #7c4a2d;
+    cursor: pointer;
+    //border: 1px #fe4a01;
+    box-shadow: -400px 0 0 400px #fe4a01;
+    position: relative;
+    top: -6px;
+}
+.range::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 5px; /* Висота треку для повзунка */
+    background: #eeeeee; /* Колір не обраної частини */
+    border-radius: 15px;
+}
+
+
+
+

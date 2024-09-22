@@ -13,6 +13,7 @@ const clean = require('gulp-clean');
 const imagemin = require('gulp-imagemin');
 const newer = require('gulp-newer');
 const include = require('gulp-include');
+const {encode} = require("ini");
 
 // const fonter = require('gulp-fonter');
 // const ttf2woff2 = require('ttf2woff2');
@@ -46,7 +47,7 @@ function scripts() {
         .pipe(browserSync.stream())
 }
 
-//HTML
+// //HTML
 // function included() {
 //     return src('app/pages/*.html')
 //         .pipe(include({
@@ -64,7 +65,7 @@ function watching() {
         }
     });
     watch(['app/scss/style.scss'], styles)
-    watch(['app/images/src'], imagemin)
+    watch(['app/images/src'], images)
     watch(['app/js/main.js'], scripts)
     // watch(['app/components/*', 'app/pages/*'], included)
     watch(['app/*.html']).on('change', browserSync.reload) //for all html
@@ -91,10 +92,10 @@ function building(){
 
 // Img
 function images() {
-    return gulp
-        .src('app/images/src/*.*')
+    return src('app/images/src/*.*', { encoding: false })
         .pipe(newer('app/images/dist'))
-        .pipe(imagemin())
+        .pipe(imagemin({
+            }, { verbose: true }))
         .pipe(dest('app/images/dist'))
 }
 

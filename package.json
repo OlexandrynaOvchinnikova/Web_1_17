@@ -26,8 +26,6 @@
     "gulp-ttf2woff2": "^5.0.0",
     "gulp-uglify": "^3.0.2",
     "gulp-uglify-es": "^3.0.0",
-    "imagemin": "^9.0.0",
-    "imagemin-svgo": "^11.0.1",
     "sass": "^1.78.0"
   },
   "dependencies": {
