@@ -43,7 +43,7 @@ function scripts() {
     return src('app/js/main.js')
         .pipe(concat('main.min.js')) //rename and add
         .pipe(uglify())
-        .pipe(dest('app/js'))
+        .pipe(dest('dist/js'))
         .pipe(browserSync.stream())
 }
 
@@ -96,7 +96,7 @@ function images() {
         .pipe(newer('app/images/dist'))
         .pipe(imagemin({
             }, { verbose: true }))
-        .pipe(dest('app/images/dist'))
+        .pipe(dest('dist/images/dist'))
 }
 
 exports.styles = styles; //turn on func
