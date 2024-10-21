@@ -3,6 +3,7 @@ $color_2: #eeeeee;
 $font-family_1: Verdana, Geneva, Tahoma, sans-serif;
 $font-family_2: monospace;
 
+
 //* {
 //    //box-sizing: border-box;
 //    padding: 6px;
@@ -298,61 +299,126 @@ input[type='range']::-webkit-slider-thumb {
     border-radius: 2px;
 }
 
+@property --p{
+    syntax: '<number>';
+    inherits: true;
+    initial-value: 0;
+}
 
 .pie {
-    margin: 16px;
-    height: 80px;
-    width: 80px;
-    border-radius: 50%;
+    --p:10;
+    --b:12px;
+    --c: #fe4a01;
+    --w:100px;
+
+    width:var(--w);
+    aspect-ratio:1;
+    position:relative;
+    display:inline-grid;
+    margin:5px;
+    place-content:center;
+    font-size:25px;
+    font-weight:bold;
+    font-family:sans-serif;
+}
+.pie:before,
+.pie:after {
+    content:"";
+    position:absolute;
+    border-radius:50%;
+}
+.pie:before {
+    inset:0;
+    background:
+            radial-gradient(farthest-side,var(--c) 98%,#0000) top/var(--b) var(--b) no-repeat,
+            conic-gradient(var(--c) calc(var(--p)*1%), #0000 0);
+    -webkit-mask:radial-gradient(farthest-side,#0000 calc(99% - var(--b)),#000 calc(100% - var(--b)));
+    mask:radial-gradient(farthest-side,#0000 calc(99% - var(--b)),#000 calc(100% - var(--b)));
 }
 
-.one {
-    background: conic-gradient(
-                    #fe4a01 0% 65%,
-                    #eeeeee 35%
-    );
+.pie:after {
+    inset:calc(50% - var(--b)/2);
+    background:var(--c);
+    transform:rotate(calc(var(--p)*3.6deg)) translateY(calc(50% - var(--w)/2));
+    transform-origin: 50% 50%;
 }
 
-.two {
-    background: conic-gradient(
-                    #fe4a01 0% 70%,
-                    #eeeeee 30%
-    );
+.animate {
+    animation:p 1s .5s both;
 }
 
-.three {
-    background: conic-gradient(
-                    #fe4a01 0% 85%,
-                    #eeeeee 15%
-    );
-}
-.four {
-    background: conic-gradient(
-                    #fe4a01 0% 68%,
-                    #eeeeee 32%
-    );
+@keyframes p {
+    from{--p:0}
 }
 
-.pie.hollow {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+body {
+    background: #ffffff;
 }
 
-.pie.three.hollow::after, .pie.one.hollow::after, .pie.two.hollow::after, .pie.four.hollow::after {
-    content: '';
-    position: absolute;
-    height: 65px;
-    width: 65px;
-    border-radius: 50%;
-    background-color: #FFFFFF;
-}
-.pie.hollow span {
-    font-size: 15pt;
-    z-index: 2;
-    font-weight: bold;
-    font-family: sans-serif ;
-}
+
+//.pie {
+//    margin: 16px;
+//    height: 80px;
+//    width: 80px;
+//    border-radius: 50%;
+//}
+//
+//.one {
+//    background: conic-gradient(
+//                    #fe4a01 0% 65%,
+//                    #eeeeee 35%
+//    );
+//}
+//
+//.two {
+//    background: conic-gradient(
+//                    #fe4a01 0% 70%,
+//                    #eeeeee 30%
+//    );
+//}
+//
+//.three {
+//    background: conic-gradient(
+//                    #fe4a01 0% 85%,
+//                    #eeeeee 15%
+//    );
+//}
+//.four {
+//    background: conic-gradient(
+//                    #fe4a01 0% 68%,
+//                    #eeeeee 32%
+//    );
+//}
+//
+//.pie:after {
+//    content: "";
+//    position: absolute;
+//    border-radius: 50%;
+//    inset: calc(50% - var(--b)/2);
+//    background: var(--c);
+//    transform: rotate(calc(var(--p)*3.6deg)) translateY(calc(50% - var(--w)/2));
+//}
+//
+//.pie.hollow {
+//    display: flex;
+//    justify-content: center;
+//    align-items: center;
+//}
+//
+//.pie.three.hollow::after, .pie.one.hollow::after, .pie.two.hollow::after, .pie.four.hollow::after {
+//    content: '';
+//    position: absolute;
+//    height: 65px;
+//    width: 65px;
+//    border-radius: 50%;
+//    background-color: #FFFFFF;
+//}
+//.pie.hollow span {
+//    font-size: 15pt;
+//    z-index: 2;
+//    font-weight: bold;
+//    font-family: sans-serif ;
+//}
 
 .lang{
     display: grid;
