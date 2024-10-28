@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" /> <!--ISO-8859-1-->
     <meta name="Oleksandryna Ovchinnikova" content="I, me, myself" />
     <meta name="viewport" content="width=device-width"/>
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <script src="js/main.min.js" defer></script>
+    <script src="js/main.js" defer></script>
     <link rel="stylesheet" href="fonts/src/fontawesome-free-6.6.0-web/css/fontawesome.css" />
     <link rel="stylesheet" href="fonts/src/fontawesome-free-6.6.0-web/css/solid.css" />
     <link rel="stylesheet" href="fonts/src/fontawesome-free-6.6.0-web/css/brands.css" />
@@ -73,77 +72,91 @@
         <div class="col-xl-6 coll-d-9 col-12">
             <div class="row">
                 <div class="col-xl-6 coll-d-6 col-9">
-                    <h2 class="bord"><i class="fa-solid fa-briefcase"></i> WORK EXPERIENCE</h2>
+                    <button onclick="expandContract_1(this)" class="bord">
+                        <i class="fa-solid fa-briefcase"></i> WORK EXPERIENCE
+                    </button>
                 </div>
                 <div class="col-xl-6 coll-d-6 col-9">
                     <span class="custom-hr_3"></span>
                 </div>
             </div>
-            <ul class="work_exp">
-                <li>
-                    <b>WEB DESIGNER</b> 2018-Present
-                    <h3> <span class="not_bold">Company Name/Location</span></h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                        Blanditiis culpa debitis, dolor ducimus hic possimus quaerat
-                        quas, quisquam saepe.</p>
-                </li>
-                <li>
-                    <b>GRAPHIC DESIGNER</b> 2015-2018
-                    <h3> <span class="not_bold">Company Name/Location</span></h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                        Blanditiis culpa debitis, dolor ducimus hic possimus quaerat
-                        quas, quisquam saepe.</p>
-                </li>
-                <li>
-                    <b>GRAPHIC DESIGNER</b> 2015-2018
-                    <h3> <span class="not_bold">Company Name/Location</span></h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                        Blanditiis culpa debitis, dolor ducimus hic possimus quaerat
-                        quas, quisquam saepe.</p>
-                </li>
-            </ul>
+            <div class="expand-container expanded">
+                <div class="expanded">
+                    <ul class="work_exp">
+                        <li>
+                            <b>WEB DESIGNER</b> 2018-Present
+                            <h3> <span class="not_bold">Company Name/Location</span></h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                Blanditiis culpa debitis, dolor ducimus hic possimus quaerat
+                                quas, quisquam saepe.</p>
+                        </li>
+                        <li>
+                            <b>GRAPHIC DESIGNER</b> 2015-2018
+                            <h3> <span class="not_bold">Company Name/Location</span></h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis culpa debitis, dolor ducimus hic possimus quaerat quas, quisquam saepe.</p>
+                        </li>
+                        <li>
+                            <b>GRAPHIC DESIGNER</b> 2015-2018
+                            <h3> <span class="not_bold">Company Name/Location</span></h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis culpa debitis, dolor ducimus hic possimus quaerat quas, quisquam saepe.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
         <div class="col-xl-3 coll-md-6 col-9">
-            <h2 class="bord"><i class="fa-solid fa-graduation-cap"></i> MY EDUCATION</h2>
-            <ul class="education">
-                <li>
-                    <b>MASTER OF CREATIVEARTS</b>
-                    <h3><span class="not_bold">University Name</span> <b class="sec_bold">2016-Present</b></h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                        Blanditiis culpa debitis.</p>
-                </li>
-                <li>
-                    <b>MASTER OF DESIGN</b>
-                    <h3> <span class="not_bold">University Name</span> <b class="sec_bold">2015-2017</b></h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                        Blanditiis culpa debitis.</p>
-                </li>
-                <li>
-                    <b>MARKETING OFFICER</b>
-                    <h3> <span class="not_bold">University Name</span> <b class="sec_bold">2010-2012</b></h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                        Blanditiis culpa debitis.</p>
-                </li>
-            </ul>
+            <button onclick="expandContract(this)" class="bord">
+                <i class="fa-solid fa-graduation-cap"></i> MY EDUCATION
+            </button>
+            <div class="expand-container expanded">
+                <div class="expanded">
+                    <ul class="education">
+                        <li>
+                            <b>MASTER OF CREATIVEARTS</b>
+                            <h3><span class="not_bold">University Name</span> <b class="sec_bold">2016-Present</b></h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                            Blanditiis culpa debitis.</p>
+                        </li>
+                        <li>
+                        <b>MASTER OF DESIGN</b>
+                            <h3> <span class="not_bold">University Name</span> <b class="sec_bold">2015-2017</b></h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                            Blanditiis culpa debitis.</p>
+                        </li>
+                        <li>
+                            <b>MARKETING OFFICER</b>
+                            <h3> <span class="not_bold">University Name</span> <b class="sec_bold">2010-2012</b></h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                            Blanditiis culpa debitis.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
         <div class="col-xl-3 coll-md-6 col-9">
-            <h2 class="bord"><i class="fa-solid fa-rotate"></i> REFERENCES</h2>
-            <b>MICHAEL R, MAGEE</b>
-            <h3> <span class="not_bold">4418 Bobcat Drive</span></h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Blanditiis culpa debitis, dolor ducimus hic possimus quaerat
-                quas, quisquam saepe.</p>
+            <button onclick="expandContract(this)" class="bord">
+                <i class="fa-solid fa-rotate"></i> REFERENCES
+            </button>
+            <div class="expand-container expanded">
+                <div class="expanded">
+                    <b>MICHAEL R, MAGEE</b>
+                    <h3> <span class="not_bold">4418 Bobcat Drive</span></h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        Blanditiis culpa debitis, dolor ducimus hic possimus quaerat
+                        quas, quisquam saepe.</p>
 
-            <b>TRAVIS M.GODINEZ</b>
-            <h3> <span class="not_bold">2755 Oakmound Drive</span></h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Blanditiis culpa debitis, dolor ducimus hic possimus quaerat
-                quas, quisquam saepe.</p>
-            <b>GILBERT R.CROSS</b>
-            <h3> <span class="not_bold">1706 Pretty View Lane</span></h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Blanditiis culpa debitis, dolor ducimus hic possimus quaerat
-                quas, quisquam saepe.</p>
+                    <b>TRAVIS M.GODINEZ</b>
+                    <h3> <span class="not_bold">2755 Oakmound Drive</span></h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        Blanditiis culpa debitis, dolor ducimus hic possimus quaerat
+                        quas, quisquam saepe.</p>
+                    <b>GILBERT R.CROSS</b>
+                    <h3> <span class="not_bold">1706 Pretty View Lane</span></h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        Blanditiis culpa debitis, dolor ducimus hic possimus quaerat
+                        quas, quisquam saepe.</p>
+                </div>
+            </div>
         </div>
     </div>
 </section>
@@ -151,8 +164,10 @@
     <div class="row">
         <div class="col-xl-3 coll-md-6 col-12">
             <ul class="awards">
-                <li>
-                    <h2 class="bord"><i class="fa-solid fa-award"></i> AWARDS </h2>
+                <li class="expand-container_2">
+                    <div role="button" class="header-toggle">
+                        <h2 class="bord"><i class="fa-solid fa-award"></i> AWARDS </h2>
+                    </div>
                 </li>
                 <li>
                     <b>BEST UI DESIGNER AWARD</b>
@@ -176,8 +191,10 @@
         <div class="col-xl-3 coll-md-6 col-12">
             <h2 class="bord"><i class="fa-solid fa-lightbulb"></i> MY SKILLS</h2>
             <ul class="skills">
-                <li>
-                    <b><span id="mw">Microsoft Word</span></b>
+                <li class="expand-container_2">
+                    <div role="button" class="header-toggle">
+                        <b><span id="mw">Microsoft Word</span></b>
+                    </div>
                     <label>
                         <input class="my_input" type="range" name="" value="700" min="0" max="1000"
                                onChange="" onmousemove="">

@@ -96,7 +96,7 @@ function images() {
         .pipe(newer('app/images/dist'))
         .pipe(imagemin({
             }, { verbose: true }))
-        .pipe(dest('dist/images/dist'))
+        .pipe(dest('dist/images'))
 }
 
 exports.styles = styles; //turn on func
