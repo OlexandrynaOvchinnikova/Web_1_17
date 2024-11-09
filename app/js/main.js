@@ -61,3 +61,36 @@ for (let slider of sliders) {
     };
 }
 
+
+fetch('/data/data.json')
+    .then(response => response.json())
+    .then(data => {
+        const jobList = document.getElementById('job-list');
+        const awardList = document.getElementById('award-list');
+
+        // ворк-досвід
+        data.jobs.forEach(job => {
+            const li = document.createElement('li');
+            li.innerHTML = `
+                        <b>${job.position}</b> ${job.years}
+                        <h3><span class="not_bold">${job.company}</span></h3>
+                        <p>${job.description}</p>
+                    `;
+            jobList.appendChild(li);
+        });
+
+        // нагороди
+        data.awards.forEach(award => {
+            const li = document.createElement('li');
+            li.innerHTML = `
+                        <b>${award.title}</b>
+                        <h3><span class="not_bold">${award.company}</span> <b class="sec_bold">${award.years}</b></h3>
+                        <p>${award.description}</p>
+                    `;
+            awardList.appendChild(li);
+        });
+    })
+    .catch(error => {
+        console.error('Error loading JSON data:', error);
+    });
+

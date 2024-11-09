@@ -1,0 +1,37 @@
+{
+  "jobs": [
+    {
+      "position": "WEB DESIGNER",
+      "years": "2018-Present",
+      "company": "Company Name/Location",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis culpa debitis, dolor ducimus hic possimus quaerat quas, quisquam saepe."
+    },
+    {
+      "position": "GRAPHIC DESIGNER",
+      "years": "2015-2018",
+      "company": "Company Name/Location",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis culpa debitis, dolor ducimus hic possimus quaerat quas, quisquam saepe."
+    },
+    {
+      "position": "GRAPHIC DESIGNER",
+      "years": "2015-2018",
+      "company": "Company Name/Location",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis culpa debitis, dolor ducimus hic possimus quaerat quas, quisquam saepe."
+    }
+  ],
+  "awards": [
+    {
+      "title": "BEST UI DESIGNER AWARD",
+      "company": "Company Name",
+      "years": "2015-2016",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis culpa debitis, dolor ducimus hic possimus quaerat quas, quisquam saepe."
+    },
+    {
+      "title": "BEST WEB PROGRAMMING AWARD",
+      "company": "LPNU",
+      "years": "2024-2025",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis culpa debitis, dolor ducimus hic possimus quaerat quas, quisquam saepe."
+    }
+  ]
+}
+

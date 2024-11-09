@@ -67,6 +67,7 @@ function watching() {
     watch(['app/scss/style.scss'], styles)
     watch(['app/images/src'], images)
     watch(['app/js/main.js'], scripts)
+    watch(['app/data/*.json'], copyJSON);
     // watch(['app/components/*', 'app/pages/*'], included)
     watch(['app/*.html']).on('change', browserSync.reload) //for all html
 }
@@ -99,15 +100,23 @@ function images() {
         .pipe(dest('dist/images'))
 }
 
+//Fetch-json
+function copyJSON() {
+    return src('app/data/*.json')
+        .pipe(dest('dist/data'))
+        .pipe(browserSync.stream());
+}
+
 exports.styles = styles; //turn on func
 exports.scripts = scripts;
 exports.watching = watching;
 exports.images = images;
 exports.building = building;
+exports.copyJSON = copyJSON;
 // exports.included = included;
 // exports.fonts = fonts;
 
 
 exports.build = series(cleanDist, building);
 //default
-exports.default = parallel(styles, images, scripts, watching);
+exports.default = parallel(styles, images, scripts, copyJSON, watching);
