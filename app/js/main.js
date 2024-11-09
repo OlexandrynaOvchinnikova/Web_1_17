@@ -20,37 +20,29 @@ function expandContract_1(button) {
         container.classList.add('expanded');
     }
 }
-// !!!!!
 
-
-// Функція для згортання/розгортання контенту
 function toggleCollapse(element) {
-    // Знаходимо найближчий батьківський ul
     const parentUl = element.closest('ul');
 
-    // Перемикаємо клас collapsed на елементі li
     const isCollapsed = element.parentElement.classList.toggle('collapsed');
 
-    // Знаходимо всі дочірні елементи ul до закриваючого тега
     const content = Array.from(parentUl.children);
     const startIndex = content.indexOf(element.parentElement);
 
     for (let i = startIndex + 1; i < content.length; i++) {
         if (isCollapsed) {
-            content[i].style.display = 'none'; // Ховаємо елементи
+            content[i].style.display = 'none';
         } else {
-            content[i].style.display = 'list-item'; // Показуємо елементи
+            content[i].style.display = 'list-item';
         }
     }
 }
 
-// Додаємо подію натискання для елементів з класом `header-toggle`
 document.querySelectorAll('.header-toggle').forEach(toggle => {
     toggle.addEventListener('click', function() {
-        toggleCollapse(this); // Викликаємо функцію на самій кнопці
+        toggleCollapse(this);
     });
 });
-
 
 
 // !!!!

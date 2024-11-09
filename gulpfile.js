@@ -31,7 +31,7 @@ const {encode} = require("ini");
 //SASS
 function styles() {
     return src('app/scss/style.scss')
-        // .pipe(autoprefixer({ overrideBrowserslist: ['last 10 version'] })) //for new feature
+        // .pipe(autoprefixer({ overrideBrowserslist: ['last 10 version'] })) //for new
         .pipe(concat('style.min.css'))
         .pipe(scss({outputStyle: 'compressed'})) //minimization of scss
         .pipe(gulp.dest('app/css'))
